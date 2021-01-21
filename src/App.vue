@@ -31,7 +31,10 @@ export default {
       await Person.query().findById(1).withGraphFetched('movies').then( p => console.log(p))
 
       await Movie.query().insert({id: 3, name: 'titan'})
-      await Person.query().findById(1).withGraphFetched('movies').then( p => console.log(p))
+      await Person.query().findById(1).withGraphFetched('movies').then( p => {
+        console.log(p)
+        console.log(p.movies.length)
+    })
     }
 
 
